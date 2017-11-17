@@ -22,6 +22,7 @@ Simple Staff Showcase is a responsive WordPress plugin to showcase your staff or
 *Easy to add to any page or post – just insert a shortcode [showstaff]
 
 == Installation ==
+**Not Currently Available on the Wordpress Plugin Database. Check back soon for this update**
 * Login to your WordPress dashboard.
 * Go to Plugins > Add New > Upload Plugin.
 * Search for Simple Staff Showcase
