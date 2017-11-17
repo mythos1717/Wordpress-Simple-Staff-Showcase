@@ -1,0 +1,50 @@
+/* Staff Manager CSS */
+.staff-wrapper{
+clear:both;
+float:none;
+}
+
+.staff-preview-details{
+    text-align: center;
+}
+
+#staff-preview img {
+    max-height: 180px;
+    width: auto;
+    text-align: center;
+}
+
+#staff-preview-name {
+    font-size: 24px;
+	margin-top: 5px;
+}
+
+#staff-preview-name a {
+    color: inherit;
+}
+
+#staff-image img {
+    box-shadow: 5px 5px 15px #ddd;
+    border: solid 1px #ddd;
+}
+
+div#staff-details {
+    margin-top: 25px;
+}
+
+#staff-meta h3 {
+    font-size: 24px;
+}
+
+#staff-meta p, #staff-bio {
+    font-size: 18px;
+}
+.staff-member-detail{
+display:none;
+}
+
+.active{
+display:block;
+}
+
+
