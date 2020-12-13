@@ -3,7 +3,7 @@
 Plugin Name: Simple Staff Showcase
 Plugin URI: 
 Description: Manage staff bios, positions, and display order of Elliot, Robinson & Company Staff
-Version: 0.1
+Version: 1.0
 Author: Cassie Witt
 Author URI: http://cassiewitt.com
 */
@@ -122,7 +122,8 @@ function showstaff($atts, $content = null) {
 	
 	//get all staff details
 	global $wpdb;
-	$staff = $wpdb->get_results("SELECT DISTINCT(p.ID),p.post_title,p.post_name,p.post_content,pms.meta_key,pms.meta_value FROM wp_posts p INNER JOIN wp_postmeta pm ON pm.post_id=p.ID INNER JOIN wp_postmeta pms ON pms.post_id=p.ID WHERE p.post_type = 'staff_member' AND p.post_status = 'publish' AND pms.meta_key='staff_sort_order' ORDER BY LENGTH(pms.meta_value), pms.meta_value");
+	$staff = $wpdb->get_results("SELECT ID,post_title FROM wp_posts WHERE post_status = 'publish' AND post_type='staff_member'");
+	//var_dump($staff);
 	?>
 	<div class="staff-wrapper">
 	<div class="staff-preview-wrapper">
@@ -171,7 +172,7 @@ if(!empty($staff)){
 		?>
 		<div class="staff-member-detail" id="member-<?php echo $staff_data->ID;?>" >
 		
-		<div id="staff-image" class="col-sm-6">
+		<div id="staff-image" class="col-sm-4">
 		<?php
 		if (has_post_thumbnail( $staff[$i]->ID )) {
 			echo get_the_post_thumbnail($staff[$i]->ID);
@@ -180,14 +181,14 @@ if(!empty($staff)){
 		}
 		?>
 		</div>
-		<div id="staff-meta" class="col-sm-6">
+		<div id="staff-meta" class="col-sm-8">
 		<h3> <?php echo $staff_data->post_title.'<br />';?></h3>
-		<p>Position:<?php echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'.$staff_data->staff_position;?></p> 
-		<p>Phone:     <?php echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'.$staff_data->staff_work_number;?></p>
-		<p>Fax:     <?php echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'.$staff_data->staff_fax_number;?></p>
-		<p><a href="mailto:<?php echo $staff_data->staff_email;?>">Email Me!</a></p>
+		<p><span class="info-title">Position:</span><?php echo $staff_data->staff_position;?></p> 
+		<p><span class="info-title">Phone:</span>     <?php echo $staff_data->staff_work_number;?></p>
+		<p><span class="info-title">Fax:</span>     <?php echo $staff_data->staff_fax_number;?></p>
+		<p><a class="button" href="mailto:<?php echo $staff_data->staff_email;?>">Email Me!</a></p>
 		</div>
-		<div id="staff-bio">
+		<div id="staff-bio" class="col-sm-8">
 		<?php
 		echo $staff_data->post_content.'<br /><br /><br />';
 		?>
@@ -210,7 +211,7 @@ add_shortcode("showstaff", "showstaff");
 
 function staffmanager_scripts_basic()
 {
-    wp_register_script( 'staffmanager-functions', plugins_url( '/js/staffmanager-functions.js', __FILE__ ) );
+    wp_register_script( 'staffmanager-functions', plugins_url( '/js/staffmanager-functions.js', __FILE__ ), array('jquery') );
 	  wp_enqueue_script( 'staffmanager-functions' );
 }
 add_action( 'wp_enqueue_scripts', 'staffmanager_scripts_basic' );

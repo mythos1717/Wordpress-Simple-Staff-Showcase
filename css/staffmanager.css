@@ -39,12 +39,38 @@ div#staff-details {
 #staff-meta p, #staff-bio {
     font-size: 18px;
 }
+#staff-meta p{margin-bottom:10px;}
+
+#staff-meta span.info-title{
+	font-weight:bold;
+	display: inline-block;
+	margin-right:10px;
+}
 .staff-member-detail{
 display:none;
 }
 
-.active{
-display:block;
+.staff-member-detail #staff-image img{
+	width: 100%;
+	height:auto;
+}
+.staff-member-detail #staff-bio{
+	margin-top:15px;
+	
 }
 
+.active{
+display:block;
+    margin-top: 35px;
+}
 
+#staff-meta a.button {
+    box-shadow: none;
+    color: #fff;
+    background: #000;
+    padding: 10px 15px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+#staff-meta a.button:hover{text-decoration:none; background:#333;};

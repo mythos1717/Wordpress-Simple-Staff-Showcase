@@ -1,5 +1,4 @@
 === Plugin Name ===
-
 Contributors: Cassie Witt
 Plugin Name: Simple Staff Showcase
 Plugin URI: http://team-3-media.com/dev/plugintest/staff-sample-page/
@@ -7,7 +6,7 @@ Tags: wp, directory, employee directory, faculty directory, staff list, staff sh
 Author URI: http://cassiewitt.com
 Author: Cassie Witt
 Requires at least: 2.3
-Tested up to: 4.8.3
+Tested up to: 5.6
 Stable tag: 1.0
 Version: 1.0 
 
@@ -17,7 +16,7 @@ Simple Staff Showcase is a responsive WordPress plugin to showcase your staff or
 
 
 == Features ==
-* Responsive layout
+* Responsive layout via bootstrap
 * Simple design
 *Easy to add to any page or post – just insert a shortcode [showstaff]
 
